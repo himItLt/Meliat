@@ -1,0 +1,7 @@
+User-agent: *
+Host: innenausbau-spanndecken.com
+Sitemap: https://innenausbau-spanndecken.com/sitemap.xml
+
+Allow: /
+Disallow: /public/*
+Allow: /de/datenschutz

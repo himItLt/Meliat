@@ -1,0 +1,11 @@
+.content-section {
+    margin: 5px;
+    border: 2px dashed #ccc;
+    position: relative;
+    padding: 5px;
+}
+.pb-block-remove {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}

@@ -1,0 +1,27 @@
+.pb-layout {
+    border: 1px solid #ccc;
+}
+.pb-header {
+    height: 40px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+}
+.form-group-inline {
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 10px;
+}
+.form-group-inline .board-custom-select {
+    margin: 0 0 0 10px;
+}
+.pb-body {
+    min-height: 400px;
+}
+.pb-frame {
+    width: 100%;
+    min-height: 400px;
+}
+#ru_editor_ifr,
+#editor_ifr {
+    min-height: 470px;
+}

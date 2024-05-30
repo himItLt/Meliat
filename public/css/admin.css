@@ -1,0 +1,343 @@
+.container {
+    max-width: 1339px;
+}
+.navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 0 1rem;
+    z-index: 1000;
+}
+.admin-content {
+    margin: 40px 0 0 0;
+}
+.hidden {
+    display: none;
+}
+.tab-content {
+    padding: 15px 0 0 0;
+}
+.board-custom-select,
+.ru_board-custom-select {
+    position: relative;
+}
+.cusom-select-input-value,
+.ru_cusom-select-input-value {
+    display: none;
+}
+.select-options-list {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border-radius: 3px;
+    top: 105%;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,.3);
+    display: none;
+    z-index: 100;
+}
+.custom-select-option {
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: all .3s ease 0s;
+}
+.custom-select-option:hover {
+    background: #3490dc;
+    color: #fff;
+}
+.action-msg {
+    position: fixed;
+    top: 40px;
+    right: 20px;
+    background: rgba(255,255,255,.8);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.2);
+    display: none;
+    z-index: 1000;
+}
+.resource-action-panel {
+    position: fixed;
+    top: 40px;
+    border-radius: 0 0 5px 5px;
+    right: 20px;
+    padding: 3px 8px 5px 8px;
+    background: rgba(230, 230, 230, 0.7);
+    z-index: 100;
+}
+.white-btn {
+    background: #fff;
+    color: #333;
+    box-shadow: 0 0 2px rgba(0,0,0,.1);
+    border-color: #ddd;
+}
+.resource-table tr td:first-child {
+    width: 75px;
+}
+.actions-row {
+    width: 100px;
+}
+.action-btn {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    display: inline-block;
+    padding: 3px 7px;
+}
+.action-btn.remove {
+    padding: 3px 9px;
+    color: red;
+    margin: 0 0 0 5px;
+}
+.ace-wrap {
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+#ace-editor {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.img-modal-dialog {
+    max-width: 1200px !important;
+}
+.modal-body {
+    max-height: 470px;
+    overflow: auto;
+}
+.uibox-row {
+    display: flex;
+    align-items: flex-start;
+}
+.media-input input {
+    border-radius: .25rem 0 0 .25rem;
+}
+.media-input button {
+    border-radius: 0 .25rem .25rem  0;
+}
+.modal-img-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#exampleModalLong {
+    z-index: 100000;
+}
+.modal-img-item {
+    cursor: pointer;
+    width: 150px;
+    height: 150px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+.modal-img-item .fa {
+    font-size: 50px;
+}
+.filename {
+    width: 100%;
+    text-align: center;
+    align-self: flex-end;
+}
+.modal-img-item.active {
+    box-shadow: 0 0 0 2px rgba(18, 45, 245, 0.7);
+}
+.modal-img-item img {
+    max-width: 100%;
+    max-height: 120px;
+}
+.icon-input {
+    max-width: 240px;
+}
+.current-file-img {
+    width: 88px;
+    margin: 0 0 0 35px;
+    text-align: center;
+}
+.current-file-img img {
+    max-width: 100%;
+}
+.gallery-header {
+    border-bottom: 1px solid #ddd;
+}
+#per_page {
+    display: inline-block;
+    width: 75px;
+}
+#dropimage {
+    position: relative;
+    min-height: 400px;
+    margin: 20px 0 0 0;
+}
+.drop-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.dz-image {
+    display: flex !important;
+    align-items: center;
+    height: 100%;
+    box-shadow: 0 1px 3px rgba(0,0,0,.2);
+}
+.dz-image img {
+    max-width: 100%;
+    height: 100%;
+}
+.edit-gallery-thumb {
+    max-width: 200px;
+    margin: 10px 0 0 0;
+}
+.dz-details button {
+    border: none;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+}
+.dz-edit-btn {
+    background: #3490dc;
+    display: inline-block;
+    padding: 5px 10px;
+}
+.dz-remove-btn {
+    background: red;
+}
+.dz-edit,
+.dz-remove {
+    margin: 10px 0 0 0;
+}
+.dz-edit {
+    margin: 10px 0 0 -5px;
+}
+.gallery-list-layout {
+    display: flex;
+    flex-wrap: wrap;
+}
+.gallery-item {
+    width: 120px;
+    height: 120px;
+    margin: 10px 1%;
+    position: relative;
+    border-radius: 10px;
+}
+.gallery-item img {
+    width: 100%;
+    max-width: 100%;
+    height: 120px;
+    border-radius: 10px;
+}
+.gallery-item:hover .gallery-thumb-img {
+  -webkit-filter: blur(2px);
+     -moz-filter: blur(2px);
+       -o-filter: blur(2px);
+      -ms-filter: blur(2px);
+          filter: blur(2px);
+}
+.gallery-thumb {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.gallery-item-details {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .2s ease 0s;
+}
+.gallery-item:hover .gallery-item-details {
+    visibility: visible;
+    opacity: 1;
+}
+.dz-filename {
+    padding: 3px 8px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.4);
+    white-space: nowrap;
+    max-width: 80px;
+    width: 80px;
+    height: 20px;
+    position: relative;
+    line-height: 14px;
+}
+.dz-filename span {
+    width: 100%;
+    overflow: hidden;
+    display: inline-block;
+}
+.dz-filename:hover span {
+    position: absolute;
+    width: auto;
+    overflow: visible;
+    display: block;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 0 8px;
+    height: 20px;
+    line-height: 20px;
+    left: 0;
+    top: 0;
+} 
+
+.gallery-item-details button {
+    border: none;
+    font-size: 13px;
+}
+
+.modal-dirs-list {
+    margin: 0;
+    padding: 0;
+}
+.modal-dirs-list ul {
+    padding: 0 0 0 15px;
+}
+.modal-dirs-list li {
+    list-style: none;
+}
+.modal-dirs-list li span {
+    display: block;
+    margin: 0 0 0 8px;
+    cursor: pointer;
+}
+.listflex {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 2px 5px;
+    color: #556C88;
+    transition: all .3s ease 0s;
+}
+.listflex:hover,
+.listflex.active {
+    background: #e8f0f8;
+}
+.listflex .fa {
+    color: #556C88;
+}
+#manager-upload-modal {
+    z-index: 10000;
+}
+.drop-wrap form {
+    display: none;
+}

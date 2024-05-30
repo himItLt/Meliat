@@ -1,0 +1,450 @@
+@extends('layouts.front')
+
+@section('content')
+<main class="content">
+
+    @if(!empty($resource) && $resource->id == 10)
+		 <script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"VideoObject","name":"MELIAT Spanndecken - Montage an einem Tag","description":"Erleben Sie die unglaubliche Montage einer Spanndecke an einem Tag! In diesem Zeitraffer-Video sehen Sie den kompletten Prozess vom Beginn bis zum Abschluss der Installation. Wir sind stolz darauf, Ihnen unsere schnelle und effektive Arbeitsweise zu präsentieren. Schauen Sie jetzt rein und lassen Sie sich beeindrucken!","thumbnailUrl":"https:\/\/innenausbau-spanndecken.com\/img\/Hauptbild_ Montage an einem Tag.jpg","uploadDate":"2023-04-25T08:00:00+08:00","duration":"PT0M45S","publisher":{"@type":"Organization","name":"MELIAT Spanndecken","logo":{"@type":"ImageObject","url":"https:\/\/innenausbau-spanndecken.com\/img\/logo.png","width":600,"height":60}},"contentUrl":"https:\/\/innenausbau-spanndecken.com\/de","embedUrl":"https:\/\/youtu.be\/M_gXaxXSFoI","interactionCount":"100"}</script>
+	@endif
+		@if (!empty($resource) && $resource->id == 3)
+		<script type="application/ld+json">
+		 {"@context":"http:\/\/schema.org","@type":"VideoObject",
+		 "name":"MELIAT - Spanndecken: Widerstandsfähigkeit und Vorsicht im Umgang mit scharfen Gegenständen",
+		 "description":"Willkommen zu unserem Video über Spanndecken! In dieser Präsentation zeigen wir Ihnen, wie widerstandsfähig Spanndeckenfolie wirklich ist. Sehen Sie selbst, wie eine Dachlatte gegen die Decke schlägt, ohne sie zu beschädigen. Dieses beeindruckende Beispiel verdeutlicht, dass diese Folie starken Einwirkungen standhält.\n\nDoch Vorsicht ist geboten! In einem weiteren Test demonstrieren wir, wie ein Messer mühelos durch die Folie schneidet. Das verdeutlicht, dass scharfe Gegenstände die Folie schnell beschädigen können. Daher möchten wir Ihnen dringend empfehlen, äußerste Vorsicht beim Umgang mit scharfen Gegenständen walten zu lassen.",
+		 "thumbnailUrl":"https:\/\/innenausbau-spanndecken.com\/img\/MELIAT Spanndecken - Widerstandsfähigkeit und Vorsicht im Umgang mit scharfen Gegenständen.jpg",
+		 "uploadDate":"2023-04-25T08:00:00+08:00",
+		 "duration":"PT1M02S",
+		 "publisher":
+			{"@type":"Organization",
+			"name":"MELIAT Spanndecken",
+			"logo":{"@type":"ImageObject",
+			"url":"https:\/\/innenausbau-spanndecken.com\/img\/logo.png",
+			"width":600,"height":60}},
+		 "contentUrl":"https:\/\/innenausbau-spanndecken.com\/de\/preise",
+		 "embedUrl":"https:\/\/youtu.be\/0m3RuJ9qbjE",
+		 "interactionCount":"100"}
+		 </script>
+
+
+		<script type="application/ld+json">{"@context":"http:\/\/schema.org\/",
+		"@type":"Product",
+		"name":"Spanndecke mit Montage. Preis - Leistung Verhältnis optimal angepasst. 10 Jahre - Garantie.",
+		"image":"https:\/\/innenausbau-spanndecken.com\/images\/ProduktMicrodataImage\/Spanndecken-Wohnzimmer-16x9.jpg",
+		"description":"EU zertifizierte hochwertige Spanndecke mit Montage von Fachfirma mit vieljährigen Erfahrung und 10-jährige Garantie.",
+		"brand":
+			{"@type":"Brand",
+			"name":"MELIAT Spanndecken"},
+		"offers":{"@type":"AggregateOffer",
+		"priceCurrency":"EUR",
+		"lowPrice":"42.00",
+		"highPrice":"81.00",
+		"priceValidUntil":"2023-01-15",
+		"itemCondition":"http:\/\/schema.org\/UsedCondition",
+		"availability":"http:\/\/schema.org\/InStock",
+		"offerCount":"3245",
+		"seller":
+			{"@type":"Organization",
+			"name":"MELIAT Spanndecken"}},
+		"aggregateRating":
+			{"@type":"AggregateRating",
+			"ratingValue":"5.00",
+			"reviewCount":{{$reviewCount}}},
+			"review":
+				{"@type":"Review",
+				"name":"Review",
+				"description":"{{$reviews[0]['text']}}",
+				"author":{"@type":"Person","name":"{{$reviews[0]['lastname']}}"}},"sku":"01"}
+		</script>				
+	@endif
+
+		
+    
+    {!! $resource[$loc . '_content'] !!}
+    @if (count($reviews) > 0 && $resource->id == 3)
+        <div class="section section-reviews">
+            <div class="section-review-body">
+                <div class="uibox-container">
+                    <h2>{{ __('theme.home_reviews_title') }}</h2>
+                    <div class="uibox-row section-reviews-list">
+                        @forelse ($reviews as $review)
+                            <div class="col s4 section-review-item">
+                                <div class="section-review-item-body">
+                                    <div class="review-header">
+                                        <div class="review-author">{{ $review->name }} {{ $review->lastname }}</div>
+                                        <div class="review-date">
+                                            {{ $review->created_at->format('d.m.Y') }}
+                                        </div>
+                                    </div>
+                                    <div class="review-rating-wrap">
+                                        <span class="review-stars" style="width: {{ $review->vote * 20 }}%;"></span>
+                                    </div>
+                                    <div class="review-text">{{ $review->text }}</div>
+                                </div>
+                            </div>
+                        @empty
+                            
+                        @endforelse
+                    </div>
+                    <div class="center reviews-btn-wrap">
+                        @if ($loc == 'de')
+                            <a class="link-btn reviews-link" href="/de/bewertungen">{{ __('theme.home_reviews_all_btn') }}</a>
+                            <a class="link-btn calc-link" href="de/bewertungen#review-form">{{ __('theme.write_review_form_btn') }}</a>
+                        @else
+                            <a class="link-btn reviews-link" href="ru/otzyvy">{{ __('theme.home_reviews_all_btn') }}</a>
+                            <a class="link-btn calc-link" href="ru/otzyvy#review-form">{{ __('theme.write_review_form_btn') }}</a>
+                        @endif
+                    </div>
+                    <div class="center review-total-block">
+                        {{ __('theme.review_label_total_rating') }}: {{$rating}} {{ __('theme.review_label_total_rating_2') }} {{$reviewCount}} {{ __('theme.review_label_total_vote') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+    @if (count($gallery) > 0)
+        <div class="gallery-layout">
+            <div class="uibox-container">
+                <div class="uibox-row gallery-list">
+                    
+                    @foreach ($gallery as $file)
+                        <div class="col s4 section-gallery-item {{$i++ > 12 ? 'hidden-img-item' : ''}}">
+                            <a class="section-gallery-wrap" href="{{$file->watermark > 0 ? $file->root_path . 'watermark/'. $file->filename : $file->root_path . $file->filename }}" data-fancybox="gallery" title="{{ $file->title }}" data-thumb="{{ $file->root_path }}thumbs/60x45/{{ $file->filename }}">
+                                <img class="section-gallery-img lazyload" data-src="{{ $file->preview > 0 ? $file->root_path . 'preview/221x169/' . $file->filename : $file->root_path . $file->filename}}" alt="{{ $file->alt }}">
+                                <div class="section-gallery-img-overlay"></div>
+                                <div class="img-zoom">
+                                    <i class="fa fa-search-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        <div class="section pagination-layout">
+            <div class="uibox-container">
+                <div class="pagination">
+                    @if ($i > 12)
+                        <button class="btn pagin-btn">{{ __('theme.load_more_btn') }}</button>
+                    @endif
+                </div>
+            </div>
+        </div>
+    @endif
+    @if ($resource->use_review == 1)
+        <div class="reviews-layout">
+            <div class="uibox-container">
+                <br>
+                <a class="link-btn" href="/{{$loc}}/{{$resource[$loc . '_uri']}}#review-form" style="background: #2cc99d; width: 225px;">{{ __('theme.write_review_form_btn') }}</a>
+                <div class="reviews-list" itemscope itemtype="http://schema.org/Organization">
+                    <div class="hidden" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                        @if (count($reviews) > 0)
+                            <meta itemprop="ratingValue" content="{{ $rating }}">
+                            <meta itemprop="reviewCount" content="{{ $reviewCount }}">
+                    		<meta  itemprop="itemreviewed" content="Spanndecken Meliat">
+                        @endif
+                    </div>
+                    @forelse ($reviews as $review)
+                        <div class="col s12 section-review-item" itemprop="review" itemscope itemtype="http://schema.org/Review">
+                            <div class="section-review-item-body">
+                                <div class="review-header">
+                                    <div class="review-author" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ $review->name }} {{ $review->lastname }}</span></div>
+                                    <meta itemprop="datePublished" content="{{ $review->created_at->format('d.m.Y') }}">
+                                	<meta  itemprop="itemreviewed" content="Spanndecken Meliat">
+                                    <div class="review-date">
+                                        {{ $review->created_at->format('d.m.Y') }}
+                                    </div>
+                                </div>
+                                <div class="review-rating-wrap" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                                    <meta itemprop="worstRating" content="1">
+                                    <meta itemprop="ratingValue" content="{{ $review->vote }}">
+                                    <meta itemprop="bestRating" content="5">
+                                    <span class="review-stars" style="width: {{ $review->vote * 20 }}%;"></span>
+                                </div>
+                                <span class="hidden" itemprop="name">{{str_limit($review->text, $limit = 50, $end = '')}}</span>
+                            <div class="review-text" itemprop="reviewBody">{{ $review->text }}</div>
+                            </div>
+                        </div>
+                    @empty
+                        
+                    @endforelse
+                </div>
+            </div>
+        </div>
+        @if (count($reviewsPagin) > 10)
+            <div class="section pagination-layout">
+                <div class="uibox-container">
+                    <div class="pagination">
+                        @if(PaginateRoute::hasPreviousPage())
+                            <a class="pagin-control" href="{{ PaginateRoute::previousPageUrl() }}">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        @endif
+                        
+                        {!! PaginateRoute::renderPageList($reviewsPagin) !!}
+                    
+                        @if(PaginateRoute::hasNextPage($reviews))
+                            <a class="pagin-control" href="{{ PaginateRoute::nextPageUrl($reviews) }}">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        @endif
+        <div class="review-form-section form-container" id="review-form">
+            <div class="uibox-container">
+                <div class="col s6 review-form-layout default-form-layout form-layout">
+                    <div class="success-msg-layout">
+                        <div class="success-msg">
+                            <button class="success-remove-btn"><i class="fa fa-times"></i></button>
+                            <div class="center">
+                                <div class="h2">{{ __('theme.review_success_title') }}</div>
+                                <div class="success-text">{{ __('theme.review_success_text') }}</div>
+                            </div>
+                            <div class="center">
+                                <div id="reviews-success-icon"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-form-wrap form-outer animated-form">
+                        <h2>{{ __('theme.review_title') }}</h2>
+                        <form class="review-form form" action="fakepath/" method="post">
+                            {{ csrf_field() }}
+                            <input type="hidden" value="{{ $loc }}" name="locale">
+                            <div class="form-group fullname">
+                                <label>fullname</label>
+                                <input type="text" name="fullname" value="">
+                                <div class="error-msg"></div>
+                            </div>
+                            <div class="col s6 form-group fullname">
+                                <label>Name<sup>*</sup></label>
+                                <input type="text" name="fullname" value="">
+                                <div class="error-msg"></div>
+                            </div>
+                            <div class="form-group">
+                                <label>{{ __('theme.review_label_vote') }}</label>
+                                <div class="vote-form-row">
+                                    <div class="form-review-vote-layout">
+                                        <div class="uibox-row form-review-vote">
+                                            <span class="form-rating-star" data-rating="1"></span>
+                                            <span class="form-rating-star" data-rating="2"></span>
+                                            <span class="form-rating-star" data-rating="3"></span>
+                                            <span class="form-rating-star" data-rating="4"></span>
+                                            <span class="form-rating-star" data-rating="5"></span>
+                                        </div>
+                                        <div class="form-review-vote-hidden">
+                                            <input type="radio" name="review_vote" class="review_vote_0" value="0" checked="checked">
+                                            <input type="radio" name="review_vote" class="review_vote_1" value="1">
+                                            <input type="radio" name="review_vote" class="review_vote_2" value="2">
+                                            <input type="radio" name="review_vote" class="review_vote_3" value="3">
+                                            <input type="radio" name="review_vote" class="review_vote_4" value="4">
+                                            <input type="radio" name="review_vote" class="review_vote_5" value="5">
+                                        </div>
+                                    </div>
+                                    <div class="vote-descr-wrap">
+                                        <div class="vote-descr vote-descr-1">{{ __('theme.review_vote_descr_1') }}</div>
+                                        <div class="vote-descr vote-descr-2">{{ __('theme.review_vote_descr_2') }}</div>
+                                        <div class="vote-descr vote-descr-3">{{ __('theme.review_vote_descr_3') }}</div>
+                                        <div class="vote-descr vote-descr-4">{{ __('theme.review_vote_descr_4') }}</div>
+                                        <div class="vote-descr vote-descr-5">{{ __('theme.review_vote_descr_5') }}</div>
+                                    </div>
+                                </div>
+                                <div class="error-msg"></div>
+                            </div>
+                            <div class="uibox-row">
+                                <div class="col s6 form-group">
+                                    <label>{{ __('theme.feedback_form_label_name') }}<sup>*</sup></label>
+                                    <input type="text" name="name" class="empty-field">
+                                    <div class="error-msg"></div>
+                                </div>
+                                <div class="col s6 form-group">
+                                    <label>{{ __('theme.feedback_form_label_lastname') }}<sup>*</sup></label>
+                                    <input type="text" name="vorname" class="empty-field">
+                                    <div class="error-msg"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>{{ __('theme.feedback_form_label_email') }}<sup>*</sup></label>
+                                <input type="text" name="email" class="empty-field">
+                                <div class="error-msg"></div>
+                            </div>
+                            <div class="form-group">
+                                <label>{{ __('theme.review_form_label_text') }}<sup>*</sup></label>
+                                <textarea name="msg" cols="30" rows="10" class="empty-field"></textarea>
+                                <div class="error-msg"></div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn default-send-btn">{{ __('theme.send_btn') }}</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @else
+
+    @endif
+    @if ($resource->use_faq == 1)
+   <div class="faq-section">
+            <div class="uibox-container">
+                <br>
+                <a class="link-btn" href="/{{$loc}}/{{$resource[$loc . '_uri']}}#faq-form" style="background: #2cc99d; width: 225px;">{{ __('theme.write_faq_form_btn') }}</a>
+                <div itemscope itemtype="http://schema.org/FAQPage">
+                    <div class="faq-list">
+                        @forelse ($questions as $question)
+                            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">                                
+                                <div class="qst-item">
+                                    <div class="faq-item-wrap">
+                                        <div class="faq-icon qst-icon">
+                                            <i class="fa fa-question"></i>
+                                        </div>                             
+                                    <div itemprop="name" class="faq-item-body qst-body">{{ $question->question }}</div>
+                                    </div>
+                                </div>
+                                @if (!empty($question->ask))
+                                    <div class="ask-item" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">                            
+                                        <div class="faq-item-wrap ask-item-wrap">
+                                        <div class="faq-item-body ask-body" itemprop="text">{!! $question->ask !!}</div>
+                                            <div class="faq-icon ask-icon">
+                                                <i class="fa fa-lightbulb-o"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
+                        @empty
+                            
+                        @endforelse
+                    </div>
+                </div>
+            </div>
+        </div>
+        @if (count($questionsPagin) > 10)
+            <div class="section pagination-layout">
+                <div class="uibox-container">
+                    <div class="pagination">
+                        @if(PaginateRoute::hasPreviousPage())
+                            <a class="pagin-control" href="{{ PaginateRoute::previousPageUrl() }}">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        @endif
+                        
+                        {!! PaginateRoute::renderPageList($questionsPagin) !!}
+                    
+                        @if(PaginateRoute::hasNextPage($questions))
+                            <a class="pagin-control" href="{{ PaginateRoute::nextPageUrl($questions) }}">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        @endif
+        <div class="review-form-section form-container" id="faq-form">
+            <div class="uibox-container">
+                <div class="col s6 review-form-layout default-form-layout form-layout">
+                    <div class="success-msg-layout">
+                        <div class="success-msg">
+                            <button class="success-remove-btn"><i class="fa fa-times"></i></button>
+                            <div class="center">
+                                <div class="h2">{{ __('theme.faq_form_success_title') }}</div>
+                                <div class="success-text">{{ __('theme.faq_form_success_text') }}</div>
+                            </div>
+                            <div class="center">
+                                <div id="faq-success-icon"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-form-wrap form-outer animated-form">
+                        <h2>{{ __('theme.faq_form_title') }}</h2>
+                        <form class="faq-form form" action="fakepath/" method="post">
+                            {{ csrf_field() }}
+                            <input type="hidden" value="{{ $loc }}" name="locale">
+                            <div class="col s6 form-group fullname">
+                                <label>Name<sup>*</sup></label>
+                                <input type="text" name="fullname" value="">
+                                <div class="error-msg"></div>
+                            </div>
+                            <div class="uibox-row">
+                                <div class="col s6 form-group">
+                                    <label>{{ __('theme.feedback_form_label_name') }}</label>
+                                    <input type="text" name="name" class="text-input">
+                                    <div class="error-msg"></div>
+                                </div>
+                                <div class="col s6 form-group">
+                                    <label>{{ __('theme.feedback_form_label_email') }}<sup>*</sup></label>
+                                    <input type="text" name="email" class="text-input empty-field">
+                                    <div class="error-msg"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>{{ __('theme.faq_label_subject') }}<sup>*</sup></label>
+                                <input type="text" name="subject" class="text-input empty-field">
+                                <div class="error-msg"></div>
+                            </div>
+                            <div class="form-group">
+                                <label>{{ __('theme.faq_label_question') }}<sup>*</sup></label>
+                                <textarea name="msg" cols="30" rows="10" class="empty-field"></textarea>
+                                <div class="error-msg"></div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn default-send-btn">{{ __('theme.send_btn') }}</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
+    @if ($resource->use_citylist == 1)
+    <div class="section">
+            <div class="uibox-container">
+                <div class="cities-app">
+                    <div class="city-search-layout">
+                        <form class="city-search-form" action="fakepath/" method="get" onsubmit="return false">
+                            <div class="cs-form-group">
+                                <input type="text" name="city_search" class="city-search-input" placeholder="{{ __('theme.city_search_placeholder') }}">
+                                <div class="search-icon">
+                                    <i class="fa fa-search"></i>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="cities-layout">
+                        <div class="cities-wrap">
+                            <ul class="cities-list">
+                                @forelse ($cities as $city)
+                                    <li><a href="de/{{ $city->de_uri}}">{{ __('theme.city_listitem_descr_pre') }} <b><span class="city">{{ $city->de_title}}</span></b>. {{ __('theme.city_listitem_descr_post') }}</a></li>
+                                @empty
+                                    
+                                @endforelse
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+<!--    <div class="share-layout">
+        <div class="uibox-container">
+            <div class="uibox-row share-row">
+                <div class="share-title">{{ __('theme.share') }}:</div>
+                <div class="share-list-row">
+                    <ul class="share-list">
+                        <li class="shre-item">
+                            <span class="share-item-wrap g-plus">
+                                <i class="fa fa-facebook-f"></i>
+                                <span class="hidden-share">
+                                    <span class="g-plus" data-action="share" data-annotation="vertical-bubble" data-height="60"></span>
+                                </span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div> 
+                            -->
+</main>
+@endsection
