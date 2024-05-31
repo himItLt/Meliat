@@ -1,0 +1,53 @@
+version: "3.5"
+
+services:
+  webserver:
+    build:
+      context: ./docker/webserver
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www
+    links:
+      - db
+    networks:
+      meliat-external:
+        aliases:
+          - meliat.local
+      default:
+    command: "tail -f /dev/null"
+  db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password --max_allowed_packet=1G
+    restart: unless-stopped
+    logging:
+      driver: "none"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: meliat
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - "3306:3306"
+    networks:
+      meliat-external:
+        aliases:
+          - meliat_db.local
+      default:
+  redis:
+    build:
+      context: ./docker/redis
+    ports:
+      - "6380:6379"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+      - ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - ./docker/redis:/redis
+    links:
+      - webserver
+
+networks:
+  meliat-external:
+    name: meliat-external
+    external: true
