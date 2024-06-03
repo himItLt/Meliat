@@ -5,6 +5,9 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
+/**
+ * @mixin \Illuminate\Contracts\Database\Eloquent\Builder
+ */
 class Resource extends Model
 {
     protected $fillable = [
