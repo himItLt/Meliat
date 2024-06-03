@@ -26,8 +26,8 @@ RUN apt install -y npm
 
 RUN rm -f /etc/nginx/sites-enabled/default
 
-COPY main-nginx.conf /etc/nginx/sites-available/psg_security
-RUN ln -s /etc/nginx/sites-available/psg_security /etc/nginx/sites-enabled/
+COPY main-nginx.conf /etc/nginx/sites-available/meliat
+RUN ln -s /etc/nginx/sites-available/meliat /etc/nginx/sites-enabled/
 COPY openssl.cnf /etc/ssl/openssl.cnf
 COPY start.sh /start.sh
 COPY php.ini /usr/local/etc/php/
